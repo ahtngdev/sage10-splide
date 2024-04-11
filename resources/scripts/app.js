@@ -1,10 +1,11 @@
 import domReady from '@roots/sage/client/dom-ready';
+import { enableSplide } from './sections/slider';
 
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  // ...
+  enableSplide();
 });
 
 /**

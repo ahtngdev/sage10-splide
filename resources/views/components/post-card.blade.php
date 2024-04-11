@@ -1,4 +1,4 @@
-<div class="{{ $class }} post-card">
+<article class="{{ $class }} post-card">
     @if (! empty($title))
         <h3 class="post-card__title">
             {!! $title !!}
@@ -19,7 +19,7 @@
 
     @if (! empty($link))
         <a href="post-card__link">
-            {!! __('See more', 'sage') !!}
+            {!! __('See more →', 'sage') !!}
         </a>
     @endif
 
@@ -28,4 +28,4 @@
             {{ $time }}
         </time>
     @endif
-</div>
+</article>
