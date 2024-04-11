@@ -20,7 +20,8 @@ class TemplateHomepage extends Field
         $templateHomepage
             ->addFlexibleContent('sections')
                 ->addLayout('slider')
-                    ->addPostObject('items', [
+                    ->addPostObject('data', [
+                        'label' => __('Slider Items', 'sage'),
                         'instructions' => __('Please select posts to display in the slider.', 'sage'),
                         'required' => 1,
                         'post_type' => [
