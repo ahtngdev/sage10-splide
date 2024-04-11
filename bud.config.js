@@ -1,45 +1,80 @@
 /**
- * @typedef {import('@roots/bud').Bud} bud
+ * Compiler configuration
  *
- * @param {bud} app
+ * @see {@link https://roots.io/sage/docs sage documentation}
+ * @see {@link https://bud.js.org/learn/config bud.js configuration guide}
+ *
+ * @type {import('@roots/bud').Config}
  */
-module.exports = async (app) => {
+export default async (app) => {
+  /**
+   * Application assets & entrypoints
+   *
+   * @see {@link https://bud.js.org/reference/bud.entry}
+   * @see {@link https://bud.js.org/reference/bud.assets}
+   */
   app
-    /**
-     * Application entrypoints
-     *
-     * Paths are relative to your resources directory
-     */
-    .entry({
-      app: ['@scripts/app', '@styles/app'],
-      editor: ['@scripts/editor', '@styles/editor'],
+    .entry('app', ['@scripts/app', '@styles/app'])
+    .entry('editor', ['@scripts/editor', '@styles/editor'])
+    .assets(['images']);
+
+  /**
+   * Set public path
+   *
+   * @see {@link https://bud.js.org/reference/bud.setPublicPath}
+   */
+  app.setPublicPath('/app/themes/sage/public/');
+
+  /**
+   * Development server settings
+   *
+   * @see {@link https://bud.js.org/reference/bud.setUrl}
+   * @see {@link https://bud.js.org/reference/bud.setProxyUrl}
+   * @see {@link https://bud.js.org/reference/bud.watch}
+   */
+  app
+    .setUrl('http://localhost:3000')
+    .setProxyUrl('http://example.test')
+    .watch(['resources/views', 'app']);
+
+  /**
+   * Generate WordPress `theme.json`
+   *
+   * @note This overwrites `theme.json` on every build.
+   *
+   * @see {@link https://bud.js.org/extensions/sage/theme.json}
+   * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json}
+   */
+  app.wpjson
+    .setSettings({
+      background: {
+        backgroundImage: true,
+      },
+      color: {
+        custom: false,
+        customDuotone: false,
+        customGradient: false,
+        defaultDuotone: false,
+        defaultGradients: false,
+        defaultPalette: false,
+        duotone: [],
+      },
+      custom: {
+        spacing: {},
+        typography: {
+          'font-size': {},
+          'line-height': {},
+        },
+      },
+      spacing: {
+        padding: true,
+        units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
+      },
+      typography: {
+        customFontSize: false,
+      },
     })
-
-    /**
-     * These files should be processed as part of the build
-     * even if they are not explicitly imported in application assets.
-     */
-    .assets('images')
-
-    /**
-     * These files will trigger a full page reload
-     * when modified.
-     */
-    .watch([
-      'tailwind.config.js',
-      'resources/views/**/*.blade.php',
-      'app/View/**/*.php',
-    ])
-
-    /**
-     * Target URL to be proxied by the dev server.
-     *
-     * This is your local dev server.
-     */
-    .proxy('http://example.test')
-
-    /**
-     * Development URL
-     */
-    .serve('http://example.test:3000');
+    .useTailwindColors()
+    .useTailwindFontFamily()
+    .useTailwindFontSize();
 };

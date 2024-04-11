@@ -1,12 +1,12 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} config */
+const config = {
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
   theme: {
     extend: {
-      colors: {},
+      colors: {}, // Extend Tailwind's default colors
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 };
+
+export default config;
