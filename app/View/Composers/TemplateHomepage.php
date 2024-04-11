@@ -17,7 +17,7 @@ class TemplateHomepage extends Composer
     public function with()
     {
         return [
-            'flexible_content' => $this->getAcfFlexibleContent(),
+            'sections' => $this->getAcfFlexibleContent(),
         ];
     }
 

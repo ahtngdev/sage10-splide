@@ -6,9 +6,6 @@
 
 @section('content')
   @while(have_posts()) @php(the_post())
-
-  @dump(get_field('sections'))
-    @include('partials.page-header')
-    @include('partials.content-page')
+    @includeWhen($sections, 'partials.flexible-sections', ['sections' => $sections])
   @endwhile
 @endsection
