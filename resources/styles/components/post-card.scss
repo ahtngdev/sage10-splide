@@ -1,0 +1,36 @@
+.post-card {
+  --gap: 2.4rem;
+
+  padding: var(--gap);
+  border: .1rem solid var(--wp--preset--color--slate-300);
+  border-radius: .5rem;
+
+  &__title {
+    margin-bottom: .5em;
+    font-size: 2rem;
+    line-height: 1.2em;
+  }
+
+  &__excerpt {
+    margin-bottom: var(--gap);
+    font-size: 1.4rem;
+    line-height: 1.33em;
+  }
+
+  &__thumbnail {
+    margin-left: calc(-1 * var(--gap));
+    margin-right: calc(-1 * var(--gap));
+    margin-bottom: var(--gap);
+
+    &-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__time {
+    display: block;
+    margin-top: .5em;
+    font-size: 1.2rem;
+  }
+}

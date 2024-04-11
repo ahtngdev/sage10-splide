@@ -1,0 +1,73 @@
+.slider {
+  position: relative;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+
+  .splide {
+    &__arrows {
+      position: absolute;
+      left: 0;
+      top: 0;
+      top: 50%;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 2rem;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    &__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      background-color: var(--wp--preset--color--white);
+      border: unset;
+      border-radius: 50%;
+      cursor: pointer;
+      appearance: none;
+      transition: background-color .25s ease-in-out;
+
+      &:hover {
+        background-color: var(--wp--preset--color--slate-300);
+      }
+
+      &--prev {
+        transform: rotate(180deg);
+      }
+
+      svg {
+        width: 2.4rem;
+        height: auto;
+      }
+    }
+
+    &__pagination {
+      gap: 1.4rem;
+      margin-top: 2rem;
+
+      &__page {
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        padding: 0;
+        background-color: var(--wp--preset--color--slate-300);
+        border: unset;
+        border-radius: 50%;
+        cursor: pointer;
+        appearance: none;
+        transition: background-color .25s ease-in-out;
+
+        &:hover {
+          background-color: var(--wp--preset--color--slate-400);
+        }
+
+        &.is-active {
+          background-color: var(--wp--preset--color--slate-500);
+        }
+      }
+    }
+  }
+}

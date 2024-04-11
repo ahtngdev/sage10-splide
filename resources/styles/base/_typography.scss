@@ -1,0 +1,13 @@
+body {
+  font-size: var(--wp--preset--font-size--base);
+  font-family: var(--wp--preset--font-family--sans);
+}
+
+a {
+  color: var(--wp--preset--color--blue-600);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
