@@ -60,7 +60,7 @@ class PostCard extends Component
         $date = get_post_time('U', false, $id);
         $diff = human_time_diff($date, current_time('timestamp'));
 
-        $this->time = $diff . __(' ago', 'sage');
+        $this->time = $diff;
     }
 
     /**

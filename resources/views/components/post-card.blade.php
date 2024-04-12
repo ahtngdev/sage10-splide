@@ -25,7 +25,7 @@
 
     @if (! empty($time))
         <time class="post-card__time">
-            {{ $time }}
+            {{ $time . __(' ago', 'sage') }}
         </time>
     @endif
 </article>

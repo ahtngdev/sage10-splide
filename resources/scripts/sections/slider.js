@@ -11,7 +11,7 @@ export const enableSplide = () => {
         type: 'loop',
         perPage: 3,
         breakpoints: {
-          768: {
+          767: {
             perPage: 1,
           },
         },
